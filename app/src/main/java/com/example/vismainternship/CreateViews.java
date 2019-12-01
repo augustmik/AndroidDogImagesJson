@@ -19,14 +19,14 @@ public class CreateViews {
         this.fView = fView;
     }
 
-    public void Creation(LinearLayout linL, Context context, JsonClass jData){
+    public void Creation(LinearLayout linL, Context context, JsonClass jData){ //Dynamically creates Views to store images
         for (int i=0; i<amount; i++) {
             ImageView imageView = new ImageView(context);
             imageView.setAdjustViewBounds(true);
             imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             imageView.setImageResource(R.drawable.ic_launcher_background);
 
-            imageView.setClickable(true); //BONUS
+            imageView.setClickable(true); //make Views clickable
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -39,9 +39,8 @@ public class CreateViews {
             new DownloadImage(imageView).execute(jData.urls.get(i));
         }
     }
-    private void ViewClick(View view){
-        Log.i("ClickedCheck", "I clicked" + view.toString());
-
+    private void ViewClick(View view){  //enlarge and center image
+        //Log.i("ClickedCheck", "I clicked" + view.toString());
         ImageView v = (ImageView) view;
         Bitmap bm=((BitmapDrawable) v.getDrawable()).getBitmap();
         fView.setImageBitmap(bm);
@@ -50,11 +49,11 @@ public class CreateViews {
         fView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FClick(v);
+                FClick();
             }
         });
     }
-    private void FClick(View view){
+    private void FClick(){ //Close the enlarged image
         fView.setVisibility(View.GONE);
     }
 }

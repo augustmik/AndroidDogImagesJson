@@ -11,7 +11,7 @@ import java.io.InputStream;
 
 public class JsonParser {
 
-    private JsonClass url;// = new JsonClass();
+    private JsonClass url;
 
     public JsonClass loadJSONFromAssets(Context context) {
         String json = null;

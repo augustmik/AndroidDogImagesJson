@@ -22,24 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         context = getBaseContext();
         setContentView(R.layout.activity_main);
-        jData = jParser.loadJSONFromAssets(context); //jData.urls[0] ==  https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg ir tt
+        jData = jParser.loadJSONFromAssets(context); //jData.urls.get(0) ==  https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg etc.
         Log.i("sizeOfjData", Integer.toString(jData.urls.size()));
-        Log.i("readFirst", jData.urls.get(0));
+        //Log.i("readFirst", jData.urls.get(0));
         ImageView fView = findViewById(R.id.fullscreenImage);
 
         createViews = new CreateViews(jData.urls.size(), fView);
         LinearLayout linearLayout = findViewById(R.id.linearCont);
         createViews.Creation(linearLayout, context, jData);
-
-
-        //ImageView img = findViewById(R.id.image0);
-        //new DownloadImage(img).execute(jData.urls.get(0));
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
     }
 
 }
