@@ -30,15 +30,6 @@ public class DownloadImage extends AsyncTask<String,Void, Bitmap> {
         return bmp;
     }
     protected void onPostExecute(Bitmap result) {
-        //Log.i("imageWidth", Integer.toString(result.getWidth()) + imageView.getLayoutParams().width);
-        //imageView.getLayoutParams().width = result.getWidth();
-        //imageView.getLayoutParams().width = result.getWidth();
-        //imageView.requestLayout();
-        //imageView.getLayoutParams().height = result.getHeight();
-        //imageView.getLayoutParams().width = result.getWidth();
-        //imageView.setMaxHeight(result.getHeight());
-        //imageView.setMaxWidth(result.getWidth());
-        //imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         imageView.setImageBitmap(result);
 
     }
